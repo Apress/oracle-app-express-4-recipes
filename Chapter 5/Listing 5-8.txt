@@ -1,0 +1,1 @@
+SELECT '',EmpName,count(*) FROM Employees INNER JOIN EmpLeave ON  Employees.EmpID=EmpLeave.EmpID GROUP BY EmpName

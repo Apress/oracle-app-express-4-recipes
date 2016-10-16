@@ -1,0 +1,16 @@
+CREATE OR REPLACE FUNCTION MyCustomAuthenticator (
+  p_username IN VARCHAR2,
+  p_password IN VARCHAR2
+)
+  RETURN BOOLEAN 
+IS
+  l_count NUMBER; 
+BEGIN
+   SELECT COUNT(*) into l_count from CUSTOMLOGINS WHERE Username=p_username AND 
+	Password=p_password;
+   IF l_count > 0 THEN
+      RETURN TRUE;
+   ELSE
+      RETURN FALSE;
+   END IF;
+END;

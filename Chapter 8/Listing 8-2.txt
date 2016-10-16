@@ -1,0 +1,10 @@
+CREATE OR REPLACE FUNCTION AuthenticationFunction (
+  p_username IN VARCHAR2,
+  p_password IN VARCHAR2
+)
+  RETURN BOOLEAN
+AS
+BEGIN
+    /* Do your thing here and return TRUE if access should be granted and 
+       FALSE if access should be denied. */
+END;

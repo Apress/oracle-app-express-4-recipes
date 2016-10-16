@@ -1,0 +1,7 @@
+<table>
+	<tr>	
+		<td width='100%'>
+			<script>window.location='http://www.google.com';</script>
+		</td>
+	</tr>
+</table>

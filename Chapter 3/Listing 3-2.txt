@@ -1,0 +1,22 @@
+CREATE table "PATIENTDISCHARGE" (
+    "DISCHARGEID"             NVARCHAR2(10),
+    "PATIENTNAME"             NVARCHAR2(255),
+    "PATIENTSOCIALSECURITYNO" NVARCHAR2(9),
+    "DATEOFDISCHARGE"         DATE,
+    "DISCHARGEREMARKS"        NVARCHAR2(2000),
+    constraint  "PATIENTDISCHARGE_PK" primary key ("DISCHARGEID")
+)
+/
+
+CREATE sequence "PATIENTDISCHARGE_SEQ" 
+/
+
+CREATE trigger "BI_PATIENTDISCHARGE"  
+  before insert on "PATIENTDISCHARGE"              
+  for each row 
+begin  
+  if :NEW."DISCHARGEID" is null then
+    select "PATIENTDISCHARGE_SEQ".nextval into :NEW."DISCHARGEID" from dual;
+  end if;
+end;
+/   

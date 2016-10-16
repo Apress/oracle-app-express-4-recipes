@@ -1,0 +1,20 @@
+CREATE table "SALARIES" (
+    "PAYROLLID"    NVARCHAR2(255),
+    "EMPLOYEENAME" NVARCHAR2(255),
+    "SALARY"       NUMBER(6,2),
+    constraint  "SALARIES_PK" primary key ("PAYROLLID")
+)
+/
+
+CREATE sequence "SALARIES_SEQ" 
+/
+
+CREATE trigger "BI_SALARIES"  
+  before insert on "SALARIES"              
+  for each row 
+begin  
+  if :NEW."PAYROLLID" is null then
+    select "SALARIES_SEQ".nextval into :NEW."PAYROLLID" from dual;
+  end if;
+end;
+/   

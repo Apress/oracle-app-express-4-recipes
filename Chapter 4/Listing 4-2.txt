@@ -1,0 +1,11 @@
+.buttonstyle_incss
+{
+font-family : Verdana;
+color : #FFFFFF;
+font-weight : bold;
+text-align :left ;
+vertical-align : middle;
+width:150px;
+height:25px;
+background-color:#000000;
+}

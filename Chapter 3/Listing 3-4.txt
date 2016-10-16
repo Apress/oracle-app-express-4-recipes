@@ -1,0 +1,11 @@
+DECLARE
+      CT INTEGER;
+BEGIN
+      SELECT COUNT(*) INTO CT FROM PAYMENTHISTORY WHERE     
+      SOCIALSECURITYNO = :P1_PATIENTSOCIALSECURITYNO;
+      IF CT>0 THEN
+          return true;
+      ELSE
+          return false;
+      END IF;
+END; 

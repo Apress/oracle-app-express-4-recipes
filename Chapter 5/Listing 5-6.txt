@@ -1,0 +1,1 @@
+SELECT EmpName, Leavedate FROM Employees,EmpLeave WHERE Employees.EmpID=EmpLeave.EmpID

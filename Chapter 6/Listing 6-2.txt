@@ -1,0 +1,4 @@
+<trans-unit id="XXXXX">
+	<source>Custname</source>
+	<target>Custname</target>
+</trans-unit>

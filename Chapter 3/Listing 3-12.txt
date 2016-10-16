@@ -1,0 +1,21 @@
+CREATE table "PATIENTDB" (
+    "PATIENTNAME"      NVARCHAR2(255),
+    "PATIENTEMAIL"     NVARCHAR2(255),
+    "PATIENTDIAGNOSIS" NVARCHAR2(2000),
+    "PATIENTID"        NVARCHAR2(10),
+    constraint  "PATIENTDB_PK" primary key ("PATIENTID")
+)
+/
+
+CREATE sequence "PATIENTDB_SEQ" 
+/
+
+CREATE trigger "BI_PATIENTDB"  
+  before insert on "PATIENTDB"              
+  for each row 
+begin  
+  if :NEW."PATIENTID" is null then
+    select "PATIENTDB_SEQ".nextval into :NEW."PATIENTID" from dual;
+  end if;
+end;
+/   

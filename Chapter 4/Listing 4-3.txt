@@ -1,0 +1,3 @@
+<button value="#LABEL#" onclick="if (confirm('Are you sure?')) {#LINK#};" class="button-gray" type="button">
+  <span>#LABEL#</span>
+</button>

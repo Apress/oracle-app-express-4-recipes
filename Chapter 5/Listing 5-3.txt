@@ -1,0 +1,1 @@
+SELECT e1.EmpName, e1.EmpTitle, e1.EmpDepartment, e2.LeaveDate, e2.LeaveType, e2.LeaveReason, e2.LeaveID FROM Employees e1 LEFT JOIN EmpLeave e2 ON e1.EmpID=e2.EmpID

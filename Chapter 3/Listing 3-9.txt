@@ -1,0 +1,61 @@
+CREATE table "EQUIPMENTREQUEST" (
+    "REQUESTID"   NVARCHAR2(10),
+    "CATEGORY"    NVARCHAR2(255),
+    "SUBCATEGORY" NVARCHAR2(255),
+    constraint  "EQUIPMENTREQUEST_PK" primary key ("REQUESTID")
+)
+/
+
+CREATE sequence "EQUIPMENTREQUEST_SEQ" 
+/
+
+CREATE trigger "BI_EQUIPMENTREQUEST"  
+  before insert on "EQUIPMENTREQUEST"              
+  for each row 
+begin  
+  if :NEW."REQUESTID" is null then
+    select "EQUIPMENTREQUEST_SEQ".nextval into :NEW."REQUESTID" from dual;
+  end if;
+end;
+/   
+
+CREATE table "CATEGORY" (
+    "CATEGORYNAME" NVARCHAR2(255),
+    "CATEGORYID"   NUMBER(6,2),
+    constraint  "CATEGORY_PK" primary key ("CATEGORYID")
+)
+/
+
+CREATE sequence "CATEGORY_SEQ" 
+/
+
+CREATE trigger "BI_CATEGORY"  
+  before insert on "CATEGORY"              
+  for each row 
+begin  
+  if :NEW."CATEGORYID" is null then
+    select "CATEGORY_SEQ".nextval into :NEW."CATEGORYID" from dual;
+  end if;
+end;
+/   
+
+CREATE table "SUBCATEGORY" (
+    "SUBCATEGORYNAME"  NVARCHAR2(255),
+    "PARENTCATEGORYID" NUMBER(6,2),
+    "SUBCATEGORYID"    NUMBER(6,2),
+    constraint  "SUBCATEGORY_PK" primary key ("SUBCATEGORYID")
+)
+/
+
+CREATE sequence "SUBCATEGORY_SEQ" 
+/
+
+CREATE trigger "BI_SUBCATEGORY"  
+  before insert on "SUBCATEGORY"              
+  for each row 
+begin  
+  if :NEW."SUBCATEGORYID" is null then
+    select "SUBCATEGORY_SEQ".nextval into :NEW."SUBCATEGORYID" from dual;
+  end if;
+end;
+/   

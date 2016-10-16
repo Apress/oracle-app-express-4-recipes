@@ -1,0 +1,6 @@
+<script type="text/javascript">
+  function validSalary(object){    
+    if(parseInt(object.value)>5000)
+   alert('Salary must be a figure below $5000');
+  }
+</script>

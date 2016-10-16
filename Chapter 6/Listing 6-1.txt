@@ -1,0 +1,7 @@
+CREATE table "MYCUSTOMERS" (
+    "CUSTNAME"    NVARCHAR2(255),
+    "CUSTREMARKS" NVARCHAR2(2000),
+    "CUSTID"      NVARCHAR2(50),
+    constraint  "MYCUSTOMERS_PK" primary key ("CUSTID")
+)
+/
